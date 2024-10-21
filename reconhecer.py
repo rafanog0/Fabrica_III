@@ -6,7 +6,7 @@ import time
 
 def recognize(indice_imagem):
 
-    image_path = f"C:/Users/rafae/OneDrive/Desktop/fábrica/ce/cropped_images/screenshot_cropped_{indice_imagem}.jpeg"
+    image_path = f"./cropped_images/screenshot_cropped_{indice_imagem}.jpeg"
 
     image = Image.open(image_path)
 
