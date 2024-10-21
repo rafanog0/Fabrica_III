@@ -14,11 +14,17 @@ def background_screenshot_and_crop(hwnd, count):
     crop_coords = get_heart_crop_coordinates_from_screenshot("cardioEmotion Home")
     x, y, w, h = crop_coords
     
+    #Variaveis de ajuste para telas de diferentes proporções
+    adjust_left = int(0.013 * right)
+    adjust_right = int(0.033 * right)
+    adjust_top = int(0.024 * bottom)
+    adjust_bottom = int(0.062 * bottom)
+
     # Ajustar coordenadas de corte em relação à janela
-    crop_left = left + x
-    crop_top = top + y
-    crop_right = crop_left + w
-    crop_bottom = crop_top + h
+    crop_left = left + x + adjust_left
+    crop_top = top + y + adjust_top
+    crop_right = crop_left + w - adjust_right
+    crop_bottom = crop_top + h - adjust_bottom
     crop_width = crop_right - crop_left
     crop_height = crop_bottom - crop_top
 
@@ -62,8 +68,8 @@ def screenshot_lower_right_quadrant(hwnd):
     #definir porcentagens para capturar um quarto da tela inferior direita
     crop_left_pct = 0.75
     crop_top_pct = 0.75
-    crop_right_pct = 1.1
-    crop_bottom_pct = 1.2
+    crop_right_pct = 1.0
+    crop_bottom_pct = 1.0
 
 
     # Calcula as coordenadas de corte reais em pixels
@@ -161,6 +167,6 @@ try:
             print("Coração não encontrado na imagem.")
         
         i += 1
-        time.sleep(1)
+        time.sleep(0.5)
 except KeyboardInterrupt:
     print("Captura de tela periódica interrompida.")
