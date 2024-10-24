@@ -17,8 +17,8 @@ def background_screenshot_and_crop(hwnd, count):
     #Variaveis de ajuste para telas de diferentes proporções
     adjust_left = int(0.013 * right)
     adjust_right = int(0.033 * right)
-    adjust_top = int(0.024 * bottom)
-    adjust_bottom = int(0.062 * bottom)
+    adjust_top = int(0.032 * bottom)
+    adjust_bottom = int(0.066 * bottom)
 
     # Ajustar coordenadas de corte em relação à janela
     crop_left = left + x + adjust_left
@@ -167,6 +167,6 @@ try:
             print("Coração não encontrado na imagem.")
         
         i += 1
-        time.sleep(0.2)
+        time.sleep(0.5)
 except KeyboardInterrupt:
     print("Captura de tela periódica interrompida.")
